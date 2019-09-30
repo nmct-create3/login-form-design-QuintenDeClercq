@@ -18,7 +18,17 @@
 \*------------------------------------*/
 
 :root {
-
+    --global-color-alpha-light: #4F95FF;
+    --global-color-alpha: #3385FF;
+    --global-color-alpha-dark: #2E77E6;
+    --global-baseline: 8px; 
+    --global-whitespace: calc(var(--global-baseline) * 3); /* = var(--global-whitespace) */
+    --global-whitespace-xs: calc(var(--global-baseline) / 2); /* = var(--global-whitespace-xs) */
+    --global-whitespace-sm: var(--global-baseline); /* = var(--global-whitespace-sm) */
+    --global-whitespace-md: calc(var(--global-baseline) * 2); /* = var(--global-whitespace-md) */
+    --global-whitespace-lg: calc(var(--global-baseline) * 4); /* = var(--global-whitespace-lg) */   
+    --global-whitespace-xl: calc(var(--global-whitespace) * 2); /* = var(--global-whitespace-xl) */    
+    --global-whitespace-xxl: calc(var(--global-baseline) * 9);   
 }
 
 /* CSS variables here */
@@ -34,7 +44,7 @@
 */
 
 html {
-    font-size: 16px;
+    font-size: var(--global-whitespace-md);
     line-height: 1.5;
     font-family: "Inter web","Comic Sans MS",Helvetica, arial, sans-serif;
     color: #20223a;
@@ -98,28 +108,28 @@ h3 {
 
 h1 {
     font-size: 36px;
-    line-height: 48px;
-    margin: 0 0 24px;
+    line-height: var(--global-whitespace-xl);
+    margin: var(--global-whitespace);
 }
 
 h2 {
-    font-size: 32px;
+    font-size: var(--global-whitespace-lg);
     line-height: 40px;
-    margin: 0 0 24px;
+    margin: var(--global-whitespace);
 }
 
 h3 {
     font-size: 26px;
-    line-height: 32px;
-    margin: 0 0 24px;
+    line-height: var(--global-whitespace-lg);
+    margin: var(--global-whitespace);
 }
 
 h4,
 h5,
 h6 {
     font-size: 20px;
-    line-height: 24px;
-    margin: 0 0 24px;
+    line-height: var(--global-whitespace);
+    margin: var(--global-whitespace);
 }
 
 p,
@@ -129,12 +139,12 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 ul,
 ol {
-    padding-left: 24px;
+    padding-left: var(--global-whitespace);
 }
 
 li ul,
@@ -145,8 +155,8 @@ li ol {
 blockquote {
     font-style: normal;
     font-size: 23px;
-    line-height: 32px;
-    margin: 0 0 24px;
+    line-height: var(--global-whitespace-lg);
+    margin: 0 0 var(--global-whitespace);
 }
 
 blockquote * {
@@ -157,30 +167,30 @@ blockquote * {
 figcaption {
     font-weight: 400;
     font-size: 12px;
-    line-height: 16px;
-    margin-top: 8px;
+    line-height: var(--global-whitespace-md);
+    margin-top: var(--global-whitespace-sm);
 }
 
 hr {
     border: 0;
     height: 1px;
     background: LightGrey;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 a {
-    color:  #3385FF;
+    color: var(--global-color-alpha);
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: #4F95FF;
+    color: var(--global-color-alpha-light);
 }
 
 a:hover,
 a:focus {
-    color: #2E77E6;
+    color: var(--global-color-alpha-dark);
 }
 
 label,
@@ -199,7 +209,7 @@ input {
 
 .o-row {
     position: relative;
-    padding: 24px 24px 0;
+    padding: var(--global-whitespace) var(--global-whitespace) 0;
 }
 
 .o-row--login {
@@ -211,26 +221,26 @@ input {
 /* size modifiers */
 
 .o-row--lg {
-    padding-top: 48px;
-    padding-bottom: 24px;
+    padding-top: var(--global-whitespace-xl);
+    padding-bottom: var(--global-whitespace);
 }
 
 .o-row--xl {
-    padding-top: 72px;
-    padding-bottom: 48px;
+    padding-top: var(--global-whitespace-xxl);
+    padding-bottom: var(--global-whitespace-xl);
 }
 
 @media (min-width: 768px) {
     .o-row {
-        padding-left: 48px;
-        padding-right: 48px;
+        padding-left: var(--global-whitespace-xl);
+        padding-right: var(--global-whitespace-xl);
     }
 }
 
 @media (min-width: 992px) {
     .o-row--xl {
         padding-top: 96px;
-        padding-bottom: 72px;
+        padding-bottom: var(--global-whitespace-xxl);
     }
 }
 
@@ -243,7 +253,7 @@ input {
 .o-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 79.5em; /* 79.5 * 16px = 1272 */
+    max-width: 79.5em; /* 79.5 * var(--global-whitespace-md) = 1272 */
     width: 100%;
 }
 
@@ -258,19 +268,19 @@ input {
 }
 
 .o-section + .o-section {
-    padding-top: 24px;
+    padding-top: var(--global-whitespace);
 }
 
 @media (min-width: 768px) {
     .o-section--lg + .o-section--lg,
     .o-section--xl + .o-section--xl {
-        padding-top: 48px;
+        padding-top: var(--global-whitespace-xl);
     }
 }
 
 @media (min-width: 992px) {
     .o-section--xl + .o-section--xl {
-        padding-top: 72px;
+        padding-top: var(--global-whitespace-xxl);
     }
 }
 
@@ -312,19 +322,19 @@ input {
 }
 
 .o-layout--gutter-lg {
-    margin: 0 -24px;
+    margin: 0 -var(--global-whitespace);
 }
 
 .o-layout--gutter-lg > .o-layout__item {
-    padding: 0 24px;
+    padding: 0 var(--global-whitespace);
 }
 
 .o-layout--gutter-xl {
-    margin: 0 -48px;
+    margin: 0 -var(--global-whitespace-xl);
 }
 
 .o-layout--gutter-xl > .o-layout__item {
-    padding: 0 48px;
+    padding: 0 var(--global-whitespace-xl);
 }
 
 /* reverse horizontal row modifier */
@@ -449,7 +459,7 @@ input {
     Website main logo
 */
 .c-logo {
-    height: 24px;
+    height: var(--global-whitespace);
 
     display: flex;
     align-items: center;
@@ -483,12 +493,12 @@ input {
 }
 
 .c-card__body {
-    line-height: 24px;
-    padding: 48px;
+    line-height: var(--global-whitespace);
+    padding: var(--global-whitespace-xl);
 }
 
 .c-card__title {
-    padding-top: 48PX;
+    padding-top: var(--global-whitespace-xl);
     font-size: 18px;
     text-align: center;
     font-weight: 400;
@@ -496,7 +506,7 @@ input {
 
 .c-card__footer {
     border-top: 1px solid #0000000f;
-    padding-top: 24px;
+    padding-top: var(--global-whitespace);
     font-size: 14px;
     text-align: center;
 }
@@ -519,9 +529,9 @@ input {
 
 .c-input {
     width: 100%;
-    font-size: 16px;
+    font-size: var(--global-whitespace-md);
     color: #20223A;
-    line-height: 24px;
+    line-height: var(--global-whitespace);
     padding: 11px;
 
     border: 1px solid #e2e3e7;
@@ -548,14 +558,14 @@ input {
 
 .c-label { 
     font-size: 14px;
-    line-height: 16px;
-    margin-bottom: 8px;
+    line-height: var(--global-whitespace-md);
+    margin-bottom: var(--global-whitespace-sm);
     color:#606274;
 
 }
 
 .c-label--option{
-    margin-left: 8px;
+    margin-left: var(--global-whitespace-sm);
     margin-bottom: 0px;
 }
 
@@ -576,8 +586,8 @@ input {
     padding: 12px 0;
 
     text-align: center;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: var(--global-whitespace-md);
+    line-height: var(--global-whitespace);
     font-weight: 600;
 
     border: 1px solid #2E77E6;
@@ -642,23 +652,23 @@ input {
 }
 
 .u-mb-xs {
-    margin-bottom: 4px !important;
+    margin-bottom: var(--global-whitespace-xs) !important;
 }
 
 .u-mb-sm {
-    margin-bottom: 8px !important;
+    margin-bottom: var(--global-whitespace-sm) !important;
 }
 
 .u-mb-md {
-    margin-bottom: 16px !important;
+    margin-bottom: var(--global-whitespace-md) !important;
 }
 
 .u-mb-lg {
-    margin-bottom: 32px !important;
+    margin-bottom: var(--global-whitespace-lg) !important;
 }
 
 .u-mb-xl {
-    margin-bottom: 48px !important;
+    margin-bottom: var(--global-whitespace-xl) !important;
 }
 
 /*
